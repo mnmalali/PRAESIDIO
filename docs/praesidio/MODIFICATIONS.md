@@ -1,6 +1,10 @@
 # Modification ledger
 Last updated: 2026-11-19
 
+## Repository README — 2026-11-20
+
+Reorganized the GitHub README around setup, integrations, architecture, and security boundaries. Added the user-supplied banner unchanged under `assets/`; no application behavior changed.
+
 ## Independent repository identity — 2026-11-19
 
 The current migration supersedes earlier notes below that say SDK/protocol identities were retained. Renamed the Go module and imports, Python distribution/import, TypeScript workspace/packages/exports, environment variables, cookie and local state, Docker names and database filename, and Claude Code marketplace/plugin/command names. Regenerated Go and Python protobuf bindings from the renamed canonical package and updated the TypeScript mirror. Newly issued local keys use `prs_local_`. Added a stdio MCP bridge, five original security skills, three Claude reviewer agents, and a 35-source external research catalog. Historical QA evidence and the untouched source backup were moved to the sibling local archive. No external security project code was copied into the active repository.

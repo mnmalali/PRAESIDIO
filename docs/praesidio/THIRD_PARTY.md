@@ -5,6 +5,7 @@ Recorded 2026-11-19. Technical inventory, not comprehensive redistribution clear
 |---|---|
 | Adrian | Apache-2.0 LICENSE unchanged; SHA-256 `cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30`. No root NOTICE supplied. All original SecureAgentics copyright lines retained in modified files. SDK LICENSE files and CONTRIBUTORS retained. |
 | Website | User-supplied PRAESIDIO PNG shield (unchanged bytes); original decision receipt, illustrations, social card and copy. Geist 1.9.2 Sans/Mono served locally under SIL Open Font License; notice in website/public/licenses/geist-OFL.txt. No reference-site assets copied. |
+| README banner | User-supplied `assets/praesidio-security-banner.png`, copied without alteration; SHA-256 `02f3f580dfb6efffeb8ab24c8ad297204f2c23d561dd6f0432ac301d2a1b4415`. |
 | Existing logos/assets | Inherited product logos were removed from the active tree; an untouched local source archive retains the historical files. Discord/ClickUp/Telegram icon source retains notices. No endorsement implied. |
 | Website design guidance | Unslop CC BY 4.0 with attribution; UI Skills MIT. These development skills are no longer bundled. REA MCP was not available or used. |
 | npm | A historical local inventory covered 137 dashboard, 359 website, and 173 TypeScript lock entries, including optional/platform/dev dependencies. Recheck the current lockfiles before binary distribution. |
