@@ -1,0 +1,10 @@
+{
+  "python": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/python.svg",
+  "typescript": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/typescript.svg",
+  "langchain": "https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/langchain.svg",
+  "anthropic": "https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/anthropic.svg",
+  "openai": "https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg",
+  "claude": "https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude.svg",
+  "openclaw": "https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openclaw.svg",
+  "hermes": "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/apps/desktop/assets/appx/Square150x150Logo.png"
+}

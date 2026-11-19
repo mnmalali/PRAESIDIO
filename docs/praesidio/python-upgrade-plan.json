@@ -1,0 +1,164 @@
+{
+  "version": "1",
+  "pip_version": "26.3",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/46/7e/52b1f714b976d344f116ccaae44e2abe4a5602ec849ab4174e3df80f0e2c/langgraph-1.2.22-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "0f8ebec55a58667e40474a0e55bdb4f06a8c7a1d98cde2b7c8d996a2ee78fe3f"
+          },
+          "hash": "sha256=0f8ebec55a58667e40474a0e55bdb4f06a8c7a1d98cde2b7c8d996a2ee78fe3f"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "langgraph",
+        "version": "1.2.22",
+        "summary": "Building stateful, multi-actor applications with LLMs",
+        "description": "# 🦜🕸️ LangGraph\n\n[![PyPI - Version](https://img.shields.io/pypi/v/langgraph?label=%20)](https://pypi.org/project/langgraph/#history)\n[![PyPI - License](https://img.shields.io/pypi/l/langgraph)](https://opensource.org/licenses/MIT)\n[![PyPI - Downloads](https://img.shields.io/pepy/dt/langgraph)](https://pypistats.org/packages/langgraph)\n[![Open Issues](https://img.shields.io/github/issues-raw/langchain-ai/langgraph)](https://github.com/langchain-ai/langgraph/issues)\n[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/langchain_oss.svg?style=social&label=Follow%20%40LangChain)](https://x.com/langchain_oss)\n\nLooking for the JS/TS version? Check out [LangGraph.js](https://github.com/langchain-ai/langgraphjs).\n\nTo help you ship LangGraph apps to production faster, check out [LangSmith](https://www.langchain.com/langsmith).\n[LangSmith](https://www.langchain.com/langsmith) is a unified developer platform for building, testing, and monitoring LLM applications.\n\n## Quick Install\n\n```bash\nuv add langgraph\n```\n\n## 🤔 What is this?\n\nLangGraph is a low-level orchestration framework for building, managing, and deploying long-running, stateful agents. LangGraph provides the infrastructure for durable execution, streaming, human-in-the-loop, persistence, memory, and more.\n\nWe recommend you use LangGraph when you have advanced needs that require a combination of deterministic and agentic workflows, heavy customization, and carefully controlled latency. Use [LangChain](https://docs.langchain.com/oss/python/langchain/overview) when you want to quickly build agents and applications powered by LLMs using pre-built agent architectures and model integrations.\n\nLangChain [agents](https://docs.langchain.com/oss/python/langchain/agents) are built on top of LangGraph in order to provide durable execution, streaming, human-in-the-loop, persistence, and more. (You do not need to know LangGraph for basic LangChain agent usage.)\n\nTrusted by companies shaping the future of agents – including Klarna, Replit, Elastic, and more – LangGraph is used to ship AI applications at scale.\n\n## 📖 Documentation\n\nFor full documentation, see the [API reference](https://reference.langchain.com/python/langgraph/). For conceptual guides, tutorials, and examples on using LangGraph, see the [LangGraph Docs](https://docs.langchain.com/oss/python/langgraph/overview). Get started with the [LangGraph Quickstart](https://docs.langchain.com/oss/python/langgraph/quickstart).\n\n## 📕 Releases & Versioning\n\nSee our [Releases](https://docs.langchain.com/oss/python/release-policy) and [Versioning](https://docs.langchain.com/oss/python/versioning) policies.\n\n## 💁 Contributing\n\nAs an open-source project in a rapidly developing field, we are extremely open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.\n\nFor detailed information on how to contribute, see the [Contributing Guide](https://docs.langchain.com/oss/python/contributing/overview).\n\n## Acknowledgements\n\nLangGraph is inspired by [Pregel](https://research.google/pubs/pub37252/) and [Apache Beam](https://beam.apache.org/). The public interface draws inspiration from [NetworkX](https://networkx.org/documentation/latest/). LangGraph is built by LangChain Inc, the creators of LangChain, but can be used without LangChain.\n",
+        "description_content_type": "text/markdown",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy"
+        ],
+        "requires_dist": [
+          "langchain-core<2,>=1.4.7",
+          "langgraph-checkpoint<5.0.0,>=4.3.0",
+          "langgraph-prebuilt<1.2.0,>=1.1.0",
+          "langgraph-sdk<0.5.0,>=0.4.6",
+          "pydantic>=2.7.4",
+          "xxhash>=3.5.0"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://docs.langchain.com/oss/python/langgraph/overview",
+          "Documentation, https://reference.langchain.com/python/langgraph/",
+          "Source, https://github.com/langchain-ai/langgraph/tree/main/libs/langgraph",
+          "Changelog, https://github.com/langchain-ai/langgraph/releases",
+          "Twitter, https://x.com/langchain_oss",
+          "Slack, https://www.langchain.com/join-community",
+          "Reddit, https://www.reddit.com/r/LangChain/"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/14/f1/3db4776fb3673dbae57b0ad2e9f14d9a2c44bde8932df7df0f7671572ed3/langgraph_sdk-0.4.14-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "d47a6755890ae537aa80613a3138680ac77f5d256a2d3953af95a96328e6964d"
+          },
+          "hash": "sha256=d47a6755890ae537aa80613a3138680ac77f5d256a2d3953af95a96328e6964d"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "langgraph-sdk",
+        "version": "0.4.14",
+        "summary": "SDK for interacting with LangGraph API",
+        "description": "# LangGraph Python SDK\n\n[![PyPI - Version](https://img.shields.io/pypi/v/langgraph-sdk?label=%20)](https://pypi.org/project/langgraph-sdk/#history)\n[![PyPI - License](https://img.shields.io/pypi/l/langgraph-sdk)](https://opensource.org/licenses/MIT)\n[![PyPI - Downloads](https://img.shields.io/pepy/dt/langgraph-sdk)](https://pypistats.org/packages/langgraph-sdk)\n[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/langchain_oss.svg?style=social&label=Follow%20%40LangChain)](https://x.com/langchain_oss)\n\nTo help you ship LangGraph apps to production faster, check out [LangSmith](https://www.langchain.com/langsmith).\n[LangSmith](https://www.langchain.com/langsmith) is a unified developer platform for building, testing, and monitoring LLM applications.\n\n## Quick Install\n\n```bash\nuv add langgraph-sdk\n```\n\n## 🤔 What is this?\n\nThis library provides the Python SDK for interacting with the LangGraph API. Use it to connect to a running LangGraph API server, manage assistants and threads, and stream runs from Python applications.\n\nYou will need a running LangGraph API server. If you're running a server locally using `langgraph-cli`, the SDK will automatically point at `http://localhost:8123`; otherwise, specify the server URL when creating a client.\n\n## 📖 Documentation\n\nFor full documentation, see the [API reference](https://reference.langchain.com/python/langgraph-sdk/). For conceptual guides and tutorials, see the [LangGraph Docs](https://docs.langchain.com/oss/python/langgraph/overview).\n\n## Quick Start\n\n```python\nfrom langgraph_sdk import get_client\n\n# If you're using a remote server, initialize the client with `get_client(url=REMOTE_URL)`\nclient = get_client()\n\n# List all assistants\nassistants = await client.assistants.search()\n\n# We auto-create an assistant for each graph you register in config.\nagent = assistants[0]\n\n# Start a new thread\nthread = await client.threads.create()\n\n# Start a streaming run\ninput = {\"messages\": [{\"role\": \"human\", \"content\": \"what's the weather in la\"}]}\nasync for chunk in client.runs.stream(\n    thread[\"thread_id\"], agent[\"assistant_id\"], input=input\n):\n    print(chunk)\n```\n\n## Known Limitations\n\n- **WebSocket transport** requires `websockets>=14` and is only available on the async client (`AsyncThreadStream`). The sync client (`SyncThreadStream`) uses SSE exclusively.\n- **`thread.extensions[name]`** opens a new subscription each time the same name is accessed. Assign the projection to a variable and reuse it within a single session rather than re-indexing across multiple iterations.\n- **Sync streaming** drives the lifecycle watcher in a background thread. Long-lived sync sessions will hold that thread open until the context manager exits.\n- **Reconnect attempts** are limited to 5 by default for both the shared SSE fan-out and the lifecycle watcher. Persistent network partitions will surface as `RuntimeError` on in-flight projections.\n\n## Thread-Centric Streaming (v3)\n\n`client.threads.stream()` returns a context manager that owns the SSE session for one thread. Typed projections — values snapshots, message streams, tool calls, custom events — all share the same underlying connection.\n\n```python\nfrom langgraph_sdk import get_client\nimport asyncio\n\nclient = get_client()\n\nasync with client.threads.stream(\n    thread_id=\"my-thread\",\n    assistant_id=\"agent\",\n) as thread:\n    await thread.run.start(input={\"messages\": [{\"role\": \"user\", \"content\": \"hi\"}]})\n\n    # Start all consumers concurrently so they share one SSE connection.\n    async def get_messages():\n        return [s async for s in thread.messages]\n\n    async def get_tool_calls():\n        return [c async for c in thread.tool_calls]\n\n    messages, tool_calls = await asyncio.gather(get_messages(), get_tool_calls())\n\n    for stream in messages:\n        print(await stream.text)  # accumulated text\n\n    final = await thread.output  # terminal state values\n```\n\n## 📕 Releases & Versioning\n\nSee our [Releases](https://docs.langchain.com/oss/python/release-policy) and [Versioning](https://docs.langchain.com/oss/python/versioning) policies.\n\n## 💁 Contributing\n\nAs an open-source project in a rapidly developing field, we are extremely open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.\n\nFor detailed information on how to contribute, see the [Contributing Guide](https://docs.langchain.com/oss/python/contributing/overview).\n",
+        "description_content_type": "text/markdown",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "requires_dist": [
+          "httpx>=0.25.2",
+          "langchain-core<2,>=1.4.0",
+          "langchain-protocol>=0.0.15",
+          "orjson>=3.11.5",
+          "websockets>=14"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Source, https://github.com/langchain-ai/langgraph/tree/main/libs/sdk-py",
+          "Twitter, https://x.com/langchain_oss",
+          "Slack, https://www.langchain.com/join-community",
+          "Reddit, https://www.reddit.com/r/LangChain/"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/26/e9/dd45ebf824f9b403bc5a4b8e6b99a517a96e1bd443a8a5a1356ff53fe2fc/langgraph_prebuilt-1.1.2-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "2f5f4d8bd84c1bc8f6bbd309145e2ffa19ffc712301cff7b0cca909cd7d1b069"
+          },
+          "hash": "sha256=2f5f4d8bd84c1bc8f6bbd309145e2ffa19ffc712301cff7b0cca909cd7d1b069"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "langgraph-prebuilt",
+        "version": "1.1.2",
+        "summary": "Library with high-level APIs for creating and executing LangGraph agents and tools.",
+        "description": "# LangGraph Prebuilt\n\n[![PyPI - Version](https://img.shields.io/pypi/v/langgraph-prebuilt?label=%20)](https://pypi.org/project/langgraph-prebuilt/#history)\n[![PyPI - License](https://img.shields.io/pypi/l/langgraph-prebuilt)](https://opensource.org/licenses/MIT)\n[![PyPI - Downloads](https://img.shields.io/pepy/dt/langgraph-prebuilt)](https://pypistats.org/packages/langgraph-prebuilt)\n[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/langchain_oss.svg?style=social&label=Follow%20%40LangChain)](https://x.com/langchain_oss)\n\nTo help you ship LangGraph apps to production faster, check out [LangSmith](https://www.langchain.com/langsmith).\n[LangSmith](https://www.langchain.com/langsmith) is a unified developer platform for building, testing, and monitoring LLM applications.\n\n## Quick Install\n\n```bash\nuv add langgraph\n```\n\n## 🤔 What is this?\n\nThis library defines high-level APIs for creating and executing LangGraph agents and tools. It includes prebuilt components such as `create_react_agent`, `ToolNode`, validation helpers, and Agent Inbox schemas.\n\n## 📖 Documentation\n\nFor full documentation, see the [API reference](https://reference.langchain.com/python/langgraph.prebuilt/). For conceptual guides and tutorials, see the [LangGraph Docs](https://docs.langchain.com/oss/python/langgraph/overview).\n\n> [!IMPORTANT]\n> This library is bundled with `langgraph`; most users should install `langgraph` instead of installing `langgraph-prebuilt` directly.\n\n## Agents\n\n`langgraph-prebuilt` provides an [implementation](https://reference.langchain.com/python/langgraph.prebuilt/chat_agent_executor/create_react_agent) of a tool-calling ReAct-style agent - `create_react_agent`:\n\n```bash\nuv add langchain-anthropic\n```\n\n```python\nfrom langchain_anthropic import ChatAnthropic\nfrom langgraph.prebuilt import create_react_agent\n\n\n# Define the tools for the agent to use\ndef search(query: str):\n    \"\"\"Call to surf the web.\"\"\"\n    # This is a placeholder, but don't tell the LLM that...\n    if \"sf\" in query.lower() or \"san francisco\" in query.lower():\n        return \"It's 60 degrees and foggy.\"\n    return \"It's 90 degrees and sunny.\"\n\n\ntools = [search]\nmodel = ChatAnthropic(model=\"claude-3-7-sonnet-latest\")\n\napp = create_react_agent(model, tools)\n# run the agent\napp.invoke(\n    {\"messages\": [{\"role\": \"user\", \"content\": \"what is the weather in sf\"}]},\n)\n```\n\n## Tools\n\n### ToolNode\n\n`langgraph-prebuilt` provides an [implementation](https://reference.langchain.com/python/langgraph.prebuilt/tool_node/ToolNode) of a node that executes tool calls - `ToolNode`:\n\n```python\nfrom langgraph.prebuilt import ToolNode\nfrom langchain_core.messages import AIMessage\n\n\ndef search(query: str):\n    \"\"\"Call to surf the web.\"\"\"\n    # This is a placeholder, but don't tell the LLM that...\n    if \"sf\" in query.lower() or \"san francisco\" in query.lower():\n        return \"It's 60 degrees and foggy.\"\n    return \"It's 90 degrees and sunny.\"\n\n\ntool_node = ToolNode([search])\ntool_calls = [\n    {\"name\": \"search\", \"args\": {\"query\": \"what is the weather in sf\"}, \"id\": \"1\"}\n]\nai_message = AIMessage(content=\"\", tool_calls=tool_calls)\n# execute tool call\ntool_node.invoke({\"messages\": [ai_message]})\n```\n\n### ValidationNode\n\n`langgraph-prebuilt` provides an [implementation](https://reference.langchain.com/python/langgraph.prebuilt/tool_validator/ValidationNode) of a node that validates tool calls against a pydantic schema - `ValidationNode`:\n\n```python\nfrom pydantic import BaseModel, field_validator\nfrom langgraph.prebuilt import ValidationNode\nfrom langchain_core.messages import AIMessage\n\n\nclass SelectNumber(BaseModel):\n    a: int\n\n    @field_validator(\"a\")\n    def a_must_be_meaningful(cls, v):\n        if v != 37:\n            raise ValueError(\"Only 37 is allowed\")\n        return v\n\n\nvalidation_node = ValidationNode([SelectNumber])\nvalidation_node.invoke(\n    {\n        \"messages\": [\n            AIMessage(\n                \"\", tool_calls=[{\"name\": \"SelectNumber\", \"args\": {\"a\": 42}, \"id\": \"1\"}]\n            )\n        ]\n    }\n)\n```\n\n## Agent Inbox\n\nThe library contains schemas for using the [Agent Inbox](https://github.com/langchain-ai/agent-inbox) with LangGraph agents. Learn more about how to use Agent Inbox [here](https://github.com/langchain-ai/agent-inbox#interrupts).\n\n```python\nfrom langgraph.types import interrupt\nfrom langgraph.prebuilt.interrupt import HumanInterrupt, HumanResponse\n\ndef my_graph_function():\n    # Extract the last tool call from the `messages` field in the state\n    tool_call = state[\"messages\"][-1].tool_calls[0]\n    # Create an interrupt\n    request: HumanInterrupt = {\n        \"action_request\": {\n            \"action\": tool_call['name'],\n            \"args\": tool_call['args']\n        },\n        \"config\": {\n            \"allow_ignore\": True,\n            \"allow_respond\": True,\n            \"allow_edit\": False,\n            \"allow_accept\": False\n        },\n        \"description\": _generate_email_markdown(state) # Generate a detailed markdown description.\n    }\n    # Send the interrupt request inside a list, and extract the first response\n    response = interrupt([request])[0]\n    if response['type'] == \"response\":\n        # Do something with the response\n    ...\n```\n\n## 📕 Releases & Versioning\n\nSee our [Releases](https://docs.langchain.com/oss/python/release-policy) and [Versioning](https://docs.langchain.com/oss/python/versioning) policies.\n\n## 💁 Contributing\n\nAs an open-source project in a rapidly developing field, we are extremely open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.\n\nFor detailed information on how to contribute, see the [Contributing Guide](https://docs.langchain.com/oss/python/contributing/overview).\n",
+        "description_content_type": "text/markdown",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy"
+        ],
+        "requires_dist": [
+          "langchain-core>=1.3.1",
+          "langgraph-checkpoint<5.0.0,>=2.1.0"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Source, https://github.com/langchain-ai/langgraph/tree/main/libs/prebuilt",
+          "Twitter, https://x.com/langchain_oss",
+          "Slack, https://www.langchain.com/join-community",
+          "Reddit, https://www.reddit.com/r/LangChain/"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.14.0",
+    "os_name": "nt",
+    "platform_machine": "AMD64",
+    "platform_release": "11",
+    "platform_system": "Windows",
+    "platform_version": "10.0.26200",
+    "python_full_version": "3.14.0",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.14",
+    "sys_platform": "win32"
+  }
+}

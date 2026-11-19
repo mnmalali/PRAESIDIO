@@ -1,0 +1,24 @@
+{
+  "name": "@mnmalali/praesidio-workspace",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "Praesidio TypeScript SDK monorepo (npm workspaces).",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/ws": "^8.18.1",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
+  }
+}

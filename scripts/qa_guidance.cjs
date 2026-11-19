@@ -1,0 +1,14 @@
+async page => {
+ await page.goto('http://127.0.0.1:3001/'); await page.locator('.workflow-section').waitFor();
+ const result=[];
+ for(const selector of ['.product-stage','.workflow-section','.control-section','.self-host']){
+ await page.locator(selector).evaluate(el=>el.scrollIntoView({block:'start',behavior:'instant'}));
+ await page.waitForFunction(s=>document.querySelector(s).hasAttribute('data-guided'),selector);
+ result.push({section:selector,cue:await page.locator('.logo-hint').textContent()});
+ }
+ await page.locator('.integrations').scrollIntoViewIfNeeded();
+ await page.screenshot({path:'output/playwright/website-logos.png'});
+ const broken=await page.locator('.integrations img').evaluateAll(imgs=>imgs.filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src));
+ if(broken.length)throw Error(JSON.stringify(broken));
+ return result;
+}

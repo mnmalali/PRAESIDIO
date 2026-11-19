@@ -1,0 +1,79 @@
+### Result
+{"responsive":[{"width":320,"overflow":false,"violations":[]},{"width":375,"overflow":false,"violations":[]},{"width":768,"overflow":false,"violations":[]},{"width":1280,"overflow":false,"violations":[]},{"width":1440,"overflow":false,"violations":[]}],"pages":[{"path":"/product","status":200,"title":"A checkpoint for agent actions. | PRAESIDIO AI","overflow":false,"violations":[]},{"path":"/security","status":200,"title":"Understand the boundary. | PRAESIDIO AI","overflow":false,"violations":[]},{"path":"/docs","status":200,"title":"From source to oversight. | PRAESIDIO AI","overflow":false,"violations":[]},{"path":"/changelog","status":200,"title":"A record of what changed. | PRAESIDIO AI","overflow":false,"violations":[]},{"path":"/about","status":200,"title":"Autonomy, with accountability. | PRAESIDIO AI","overflow":false,"violations":[]},{"path":"/contact","status":200,"title":"Start with the context. | PRAESIDIO AI","overflow":false,"violations":[]},{"path":"/no-such-page","status":404}],"interactions":["Three scenarios + native radio ArrowRight cycling PASS","Mobile menu Enter/Escape + focus PASS","FAQ keyboard PASS",{"reducedMotion":{"scroll":"auto","transition":"0s"}},{"zoom200EquivalentReflowOverflow":false}]}
+### Ran Playwright code
+```js
+await (// Run with playwright-cli -s=website run-code --filename=scripts/qa_website.cjs
+async page => {
+  const results = {responsive: [], pages: [], interactions: []}
+  const axePath = 'C:/Users/mnmal/AppData/Local/praesidio-tools/qa/node_modules/axe-core/axe.min.js'
+  const audit = async () => {
+    await page.addScriptTag({path: axePath})
+    return page.evaluate(async () => {
+      const r = await axe.run(document, {runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}})
+      return r.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))
+    })
+  }
+  await page.goto('http://127.0.0.1:3001/')
+  await page.getByRole('heading',{name:'Let agents work. Stay in control.',exact:true}).waitFor()
+  await page.evaluate(()=>document.fonts.ready)
+  for (const width of [320,375,768,1280,1440]) {
+    await page.setViewportSize({width,height:900})
+    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)
+    const violations=await audit()
+    await page.screenshot({path:`output/playwright/website-${width}-final.png`,fullPage:true})
+    results.responsive.push({width,overflow,violations})
+  }
+  await page.getByRole('radio',{name:'Routine action',exact:true}).check()
+  await page.getByText('Continue with the lookup').waitFor()
+  if(!await page.getByText('Continue with the lookup',{exact:false}).isVisible())throw Error('Allowed scenario failed')
+  await page.getByRole('radio',{name:'Routine action',exact:true}).focus()
+  await page.keyboard.press('ArrowRight')
+  await page.getByText('Waiting for human approval').waitFor()
+  if(!await page.getByText('Waiting for human approval',{exact:false}).isVisible())throw Error('Keyboard review scenario failed')
+  await page.keyboard.press('ArrowRight')
+  await page.getByText('Tool execution prevented').waitFor()
+  if(!await page.getByText('Tool execution prevented',{exact:false}).isVisible())throw Error('Keyboard denied scenario failed')
+  results.interactions.push('Three scenarios + native radio ArrowRight cycling PASS')
+  await page.setViewportSize({width:375,height:900})
+  const menu=page.locator('.mobile-menu summary')
+  await menu.focus();await page.keyboard.press('Enter')
+  if(!await page.getByRole('navigation',{name:'Mobile navigation'}).isVisible())throw Error('Menu did not open')
+  await page.keyboard.press('Escape')
+  if(await page.getByRole('navigation',{name:'Mobile navigation'}).isVisible())throw Error('Menu did not close')
+  if(!await menu.evaluate(el=>el===document.activeElement))throw Error('Menu focus not restored')
+  results.interactions.push('Mobile menu Enter/Escape + focus PASS')
+  const faq=page.locator('.faq summary').first()
+  await faq.focus();await page.keyboard.press('Enter')
+  if(!await faq.evaluate(el=>el.parentElement.open))throw Error('FAQ keyboard failed')
+  results.interactions.push('FAQ keyboard PASS')
+  await page.emulateMedia({reducedMotion:'reduce'})
+  const motion=await page.evaluate(()=>({scroll:getComputedStyle(document.documentElement).scrollBehavior,transition:getComputedStyle(document.querySelector('.button')).transitionDuration}))
+  results.interactions.push({reducedMotion:motion})
+  await page.emulateMedia({reducedMotion:'no-preference'})
+  await page.setViewportSize({width:1280,height:900})
+  // 200% browser zoom at a 1280px window gives a 640px CSS viewport.
+  // Verify layout reflow at that equivalent viewport, not CSS body magnification.
+  await page.setViewportSize({width:640,height:450})
+  results.interactions.push({zoom200EquivalentReflowOverflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)})
+  await page.screenshot({path:'output/playwright/website-zoom200-reflow.png'})
+  await page.setViewportSize({width:1280,height:900})
+  for(const path of ['/product','/security','/docs','/changelog','/about','/contact']) {
+    const response=await page.goto(`http://127.0.0.1:3001${path}`)
+    await page.locator('main h1').waitFor()
+    await page.evaluate(()=>document.fonts.ready)
+    await page.setViewportSize({width:375,height:900})
+    results.pages.push({path,status:response.status(),title:await page.title(),overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),violations:await audit()})
+  }
+  const missing=await page.goto('http://127.0.0.1:3001/no-such-page')
+  if(missing.status()!==404)throw Error('Unknown route must return 404')
+  results.pages.push({path:'/no-such-page',status:missing.status()})
+  await page.goto('http://127.0.0.1:3001/')
+  await page.getByRole('heading',{name:'Let agents work. Stay in control.',exact:true}).waitFor()
+  await page.setViewportSize({width:1440,height:900})
+  await page.screenshot({path:'output/playwright/website-preview.png'})
+  return results
+}
+)(page);
+```
+### Events
+- New console entries: .playwright-cli\console-2026-11-19T00-01-57-356Z.log#L30

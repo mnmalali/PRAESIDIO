@@ -1,0 +1,105 @@
+{
+  "mode": "SYNTHETIC CLASSIFIER; REAL BACKEND AUTH + SQLITE",
+  "checks": [
+    {
+      "check": "Health",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "Readiness with synthetic classifier",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "Unauthenticated protected data",
+      "result": "PASS",
+      "status": 401
+    },
+    {
+      "check": "Forged session rejected",
+      "result": "PASS",
+      "status": 401
+    },
+    {
+      "check": "Wrong password",
+      "result": "PASS",
+      "status": 401
+    },
+    {
+      "check": "Login",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "First login requires rotation",
+      "result": "PASS",
+      "status": 403
+    },
+    {
+      "check": "Password rotation",
+      "result": "PASS",
+      "status": 204
+    },
+    {
+      "check": "/auth/me",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/events",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/verdicts",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/agents",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/agent-profiles",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/keys",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/settings/policy",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/stats/overview",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/stats/activity",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/reviews",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/mcp/servers",
+      "result": "PASS",
+      "status": 200
+    },
+    {
+      "check": "/audit-log",
+      "result": "PASS",
+      "status": 200
+    }
+  ]
+}

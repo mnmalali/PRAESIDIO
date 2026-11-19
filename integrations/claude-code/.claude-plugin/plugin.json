@@ -1,0 +1,25 @@
+{
+  "name": "praesidio-cc",
+  "description": "Praesidio runtime security: observability and blocking for Claude Code sessions",
+  "version": "0.2.0",
+  "author": {
+    "name": "PRAESIDIO contributors"
+  },
+  "homepage": "https://github.com/mnmalali/PRAESIDIO",
+  "repository": "https://github.com/mnmalali/PRAESIDIO",
+  "license": "Apache-2.0",
+  "keywords": [
+    "claude-code",
+    "ai-security",
+    "llm-security",
+    "agent-security",
+    "agentic-security",
+    "runtime-security",
+    "prompt-injection",
+    "threat-detection",
+    "ai-governance",
+    "observability",
+    "mcp-security",
+    "self-hosted"
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "path": "/login",
+    "status": 200,
+    "finalPath": "/login"
+  },
+  {
+    "path": "/events",
+    "status": 200,
+    "finalPath": "/login"
+  },
+  {
+    "path": "/icon.svg",
+    "status": 200,
+    "finalPath": "/icon.svg"
+  }
+]

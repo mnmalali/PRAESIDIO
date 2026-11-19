@@ -1,0 +1,4 @@
+interface:
+  display_name: "PRAESIDIO Design"
+  short_description: "Original, accessible design for PRAESIDIO AI"
+  default_prompt: "Apply the PRAESIDIO design system to this page, preserving its behavior and verifying accessibility."

@@ -1,0 +1,15 @@
+{
+  "include": ["praesidio", "tests"],
+  "exclude": ["**/__pycache__", "praesidio/proto"],
+  "venvPath": "../..",
+  "venv": ".venv",
+  "pythonVersion": "3.12",
+  "pythonPlatform": "Linux",
+  "typeCheckingMode": "strict",
+  "reportMissingTypeStubs": false,
+  "reportCallInDefaultInitializer": false,
+  "reportUnannotatedClassAttribute": false,
+  "reportMissingTypeArgument": "warning",
+  "reportUnusedVariable": "error",
+  "reportUnusedParameter": "error"
+}

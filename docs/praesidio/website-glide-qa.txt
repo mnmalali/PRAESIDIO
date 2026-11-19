@@ -1,0 +1,28 @@
+### Result
+{"stops":[{"selector":".product-stage","glide":true,"staysInGutter":true},{"selector":".workflow-section","glide":true,"staysInGutter":true},{"selector":".control-section","glide":true,"staysInGutter":true},{"selector":".self-host","glide":true,"staysInGutter":true},{"selector":".workflow-section","glide":true,"staysInGutter":true}],"reduced":{"transition":"0s","position":"absolute"}}
+### Ran Playwright code
+```js
+await (async page => {
+ await page.setViewportSize({width:1440,height:900}); await page.emulateMedia({reducedMotion:'no-preference'});
+ await page.goto('http://127.0.0.1:3001/'); await page.locator('.workflow-section').waitFor();
+ const logo=page.locator('.logo-journey'); const result=[];
+ for(const selector of ['.product-stage','.workflow-section','.control-section','.self-host','.workflow-section']) {
+ await page.locator(selector).evaluate(el=>el.scrollIntoView({block:'start',behavior:'instant'}));
+ await page.waitForFunction(s=>document.querySelector(s).hasAttribute('data-guided'),selector);
+ await page.waitForTimeout(120);
+ const mid=await logo.evaluate(el=>({transform:getComputedStyle(el).transform,running:el.getAnimations().some(a=>a.playState==='running')}));
+ await page.waitForTimeout(1250);
+ const end=await logo.evaluate(el=>({transform:getComputedStyle(el).transform,left:el.getBoundingClientRect().left,opacity:getComputedStyle(el).opacity}));
+ if(!mid.running||mid.transform===end.transform||end.left<1300||end.opacity!=='1')throw Error(JSON.stringify({selector,mid,end}));
+ result.push({selector,glide:true,staysInGutter:true});
+ }
+ await page.screenshot({path:'output/playwright/website-glide.png'});
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.waitForFunction(()=>document.documentElement.dataset.motion==='off');
+ const reduced=await logo.evaluate(el=>({transition:getComputedStyle(el).transitionDuration,position:getComputedStyle(el).position}));
+ if(reduced.transition!=='0s'||reduced.position!=='absolute')throw Error(JSON.stringify(reduced));
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ return {stops:result,reduced};
+}
+)(page);
+```

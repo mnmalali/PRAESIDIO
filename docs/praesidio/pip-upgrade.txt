@@ -1,0 +1,11 @@
+Requirement already satisfied: pip in c:\users\mnmal\onedrive\projects\cyber summit 2026\praesidio\.venv\lib\site-packages (25.2)
+Collecting pip
+  Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+   ---------------------------------------- 2.0/2.0 MB 4.0 MB/s  0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 25.2
+    Uninstalling pip-25.2:
+      Successfully uninstalled pip-25.2
+Successfully installed pip-26.3

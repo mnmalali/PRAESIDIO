@@ -1,0 +1,47 @@
+// Real authenticated APIs, isolated synthetic runtime. No production data.
+async page => {
+  await page.emulateMedia({reducedMotion:'reduce'})
+  const results={routes:[],responsive:[],states:[],interactions:[]}
+  const axePath='C:/Users/mnmal/AppData/Local/praesidio-tools/qa/node_modules/axe-core/axe.min.js'
+  const audit=async()=>{await page.addScriptTag({path:axePath});return page.evaluate(async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}});return r.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))})}
+  for(const route of ['/','/agents','/events','/reviews','/mcp','/settings','/sessions/synthetic-empty','/agents/synthetic-missing']) {
+    await page.goto('http://localhost:3000'+route)
+    await page.waitForLoadState('networkidle')
+    results.routes.push({route,url:page.url(),violations:await audit()})
+  }
+  await page.goto('http://localhost:3000/')
+  await page.waitForLoadState('networkidle')
+  for(const width of [320,375,768,1280,1440]) {
+    await page.setViewportSize({width,height:900})
+    results.responsive.push({width,overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),violations:await audit()})
+    await page.screenshot({path:`output/playwright/dashboard-${width}.png`,fullPage:true})
+  }
+  await page.setViewportSize({width:375,height:900})
+  const trigger=page.getByRole('button',{name:'Open navigation'})
+  await trigger.click()
+  if(!await page.getByRole('dialog',{name:'Console navigation'}).isVisible())throw Error('Mobile drawer failed')
+  await page.keyboard.press('Escape')
+  if(await page.getByRole('dialog',{name:'Console navigation'}).isVisible())throw Error('Escape failed')
+  results.interactions.push({mobileNavigation:'PASS',restoredFocus:await trigger.evaluate(el=>el===document.activeElement)})
+  await page.setViewportSize({width:1280,height:900})
+  await page.getByRole('button',{name:'Theme: Light',exact:true}).click()
+  await page.waitForFunction(()=>!document.documentElement.classList.contains('dark'))
+  results.interactions.push({lightThemeViolations:await audit()})
+  await page.screenshot({path:'output/playwright/dashboard-light.png'})
+  await page.getByRole('button',{name:'Theme: Dark',exact:true}).click()
+  for(const [route,pattern] of [['/','**/api/stats/overview'],['/events','**/api/events?*'],['/agents','**/api/agents?*'],['/reviews','**/api/reviews?*'],['/mcp','**/api/mcp/servers'],['/settings','**/api/settings/policy']]) {
+    await page.route(pattern,r=>r.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:'Synthetic QA unavailability'})}))
+    await page.goto('http://localhost:3000'+route)
+    await page.getByRole('button',{name:'Try again',exact:true}).waitFor()
+    results.states.push({route,error:'Visible retry state PASS'})
+    await page.unroute(pattern)
+  }
+  await page.route('**/api/events?*',async r=>{await new Promise(resolve=>setTimeout(resolve,2000));await r.continue()})
+  await page.goto('http://localhost:3000/events')
+  await page.getByText('Loading events…',{exact:true}).waitFor()
+  results.states.push({route:'/events',loading:'Visible PASS'})
+  await page.waitForLoadState('networkidle');await page.unroute('**/api/events?*')
+  await page.goto('http://localhost:3000/settings')
+  await page.waitForLoadState('networkidle')
+  return results
+}

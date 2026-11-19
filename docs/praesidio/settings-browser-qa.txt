@@ -1,0 +1,59 @@
+### Result
+[{"state":"Create agent form","violations":[]},{"state":"Agent editor","violations":[]},{"agentCreateAndProfileSave":"PASS"},{"state":"Populated agent editor","width":320,"overflow":false,"violations":[]},{"state":"Populated agent editor","width":375,"overflow":false,"violations":[]},{"state":"Integrations","violations":[]},{"state":"Activity","violations":[]},{"state":"Login","violations":[]},{"signOutProtectedRouteAndPublicIcon":"PASS"},{"revokedSessionReauthentication":"PASS"}]
+### Ran Playwright code
+```js
+await (// Isolated real-backend QA only. Never run against a production console.
+async page => {
+  const results=[]
+  const audit=async()=>{await page.addScriptTag({path:'C:/Users/mnmal/AppData/Local/praesidio-tools/qa/node_modules/axe-core/axe.min.js'});return page.evaluate(async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}});return r.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))})}
+  await page.goto('http://localhost:3000/settings')
+  await page.getByRole('button',{name:'Agents',exact:true}).click()
+  await page.getByRole('button',{name:'+ New agent',exact:true}).click()
+  results.push({state:'Create agent form',violations:await audit()})
+  await page.getByRole('textbox',{name:'Agent name',exact:true}).fill('Synthetic QA agent')
+  await page.getByRole('button',{name:'Create agent',exact:true}).click()
+  await page.getByRole('button',{name:'Copy and dismiss',exact:true}).waitFor()
+  // Do not print, capture or copy the temporary key. Reload removes it from UI.
+  await page.reload()
+  await page.getByRole('button',{name:'Agents',exact:true}).click()
+  await page.getByRole('button',{name:'Edit',exact:true}).click()
+  results.push({state:'Agent editor',violations:await audit()})
+  await page.getByRole('checkbox',{name:'Use custom agent profile',exact:false}).check()
+  await page.getByRole('textbox',{name:'Remit',exact:true}).fill('Synthetic QA: read only local fixture records.')
+  await page.getByRole('button',{name:'Save agent',exact:true}).click()
+  await page.getByText('Saved',{exact:true}).waitFor()
+  results.push({agentCreateAndProfileSave:'PASS'})
+  for(const width of [320,375]) {
+    await page.setViewportSize({width,height:900})
+    results.push({state:'Populated agent editor',width,overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),violations:await audit()})
+  }
+  await page.setViewportSize({width:1280,height:900})
+  for(const tab of ['Integrations','Activity']) {
+    await page.getByRole('button',{name:tab,exact:true}).click()
+    await page.waitForLoadState('networkidle')
+    results.push({state:tab,violations:await audit()})
+  }
+  const oldCookies=await page.context().cookies()
+  await page.getByRole('button',{name:'Sign out',exact:true}).click()
+  await page.waitForURL('**/login')
+  results.push({state:'Login',violations:await audit()})
+  await page.goto('http://localhost:3000/events')
+  if(!page.url().endsWith('/login'))throw Error('Unauthenticated route did not redirect')
+  const icon=await page.request.get('http://localhost:3000/icon.svg')
+  if(icon.status()!==200)throw Error('Public icon unavailable')
+  results.push({signOutProtectedRouteAndPublicIcon:'PASS'})
+  await page.context().addCookies(oldCookies)
+  await page.goto('http://localhost:3000/events')
+  await page.waitForURL('**/login')
+  await page.getByRole('button',{name:'Sign in',exact:true}).waitFor()
+  results.push({revokedSessionReauthentication:'PASS'})
+  await page.context().clearCookies()
+  return results
+}
+)(page);
+```
+### Page
+- Page URL: http://localhost:3000/login
+- Page Title: PRAESIDIO AI | Security console
+### Events
+- New console entries: .playwright-cli\console-2026-11-18T23-24-04-808Z.log#L6925-L6926

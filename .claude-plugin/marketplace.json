@@ -1,0 +1,15 @@
+{
+  "name": "praesidio",
+  "owner": {
+    "name": "PRAESIDIO contributors"
+  },
+  "description": "Runtime AI-security tooling for Claude Code and agentic AI, from the Praesidio OSS project.",
+  "plugins": [
+    {
+      "name": "praesidio-cc",
+      "source": "./integrations/claude-code",
+      "description": "Runtime security for Claude Code: hooks-based observability and blocking, backed by the self-hosted Praesidio engine.",
+      "strict": true
+    }
+  ]
+}

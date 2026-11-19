@@ -1,0 +1,123 @@
+/* Modified for PRAESIDIO AI, 2026-11-19: semantic palette, offline typography, focus and responsive states. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* CSS Variables — light (default) and dark                           */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --accent: 54 85 22;
+  --danger: 160 42 37;
+  --warning: 116 77 13;
+  --ink:             17 17 17;
+  --ink-2:           58 58 58;
+  --ink-3:           112 112 112;
+  --ink-4:           163 163 163;
+  --ink-5:           207 207 207;
+  --surface:         247 246 240;
+  --surface-raised:  255 255 255;
+  --surface-overlay: 245 245 245;
+  --surface-border:  211 215 207;
+  --surface-hover:   245 245 245;
+}
+
+.dark {
+  --accent: 200 237 139;
+  --danger: 237 159 154;
+  --warning: 238 208 147;
+  --ink:             245 243 236;
+  --ink-2:           218 218 218;
+  --ink-3:           181 186 179;
+  --ink-4:           155 165 155;
+  --ink-5:           82 82 91;
+  --surface:         11 14 12;
+  --surface-raised:  21 26 23;
+  --surface-overlay: 32 38 33;
+  --surface-border:  52 59 53;
+  --surface-hover:   37 44 38;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                               */
+/* ------------------------------------------------------------------ */
+
+html {
+  background: rgb(var(--surface));
+  color-scheme: light;
+  font-feature-settings: "tnum", "cv11", "ss01";
+}
+html.dark {
+  --accent: 200 237 139;
+  --danger: 237 159 154;
+  --warning: 238 208 147;
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-surface text-ink antialiased font-sans;
+}
+
+::selection {
+  @apply bg-ink text-surface-raised;
+}
+
+/* ------------------------------------------------------------------ */
+/* Scrollbar                                                          */
+/* ------------------------------------------------------------------ */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { @apply bg-surface; }
+::-webkit-scrollbar-thumb { @apply bg-surface-border rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-ink-4; }
+
+/* ------------------------------------------------------------------ */
+/* Form elements                                                      */
+/* ------------------------------------------------------------------ */
+
+input, select, textarea {
+  @apply bg-surface-raised border border-surface-border text-ink placeholder-ink-4 rounded-lg;
+}
+input:focus, select:focus, textarea:focus {
+  @apply outline-none ring-2 ring-ink/10 border-ink-5;
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilities                                                          */
+/* ------------------------------------------------------------------ */
+
+.table-row-hover:hover {
+  @apply bg-surface-hover;
+}
+
+.tabnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Prevent flash of unstyled content during theme init */
+html:not(.theme-ready) * {
+  transition: none !important;
+}
+
+/* PRAESIDIO interaction and responsive defaults */
+body { font-size: 16px; line-height: 1.5; }
+h1,h2,h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; }
+button, input:not([type=checkbox]):not([type=radio]),select { min-height: 44px; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+button:not(:disabled):active { transform: translateY(1px); }
+.praesidio-skip { position: fixed; top: -80px; left: 16px; z-index: 60; padding: 12px 20px; background: rgb(var(--ink)); color: rgb(var(--surface)); }
+.praesidio-skip:focus { top: 12px; }
+main { min-width: 0; }
+main > * { min-width: 0; }
+main table { font-variant-numeric: tabular-nums; }
+main [class*="text-[10px]"],main [class*="text-[11px]"] { font-size: 12px; }
+dialog::backdrop { background: rgb(0 0 0 / .65); }
+dialog { color: rgb(var(--ink)); }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
+
+main p a, main li a { text-decoration: underline; text-underline-offset: 4px; }
+main code { overflow-wrap: anywhere; }

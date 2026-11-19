@@ -1,0 +1,15 @@
+app/[slug]/page.tsx 108ms
+app/error.tsx 5ms (unchanged)
+app/globals.css 186ms
+app/layout.tsx 11ms (unchanged)
+app/loading.tsx 2ms (unchanged)
+app/not-found.tsx 3ms (unchanged)
+app/opengraph-image.tsx 4ms (unchanged)
+app/page.tsx 33ms
+app/robots.ts 3ms (unchanged)
+app/sitemap.ts 4ms (unchanged)
+components/brand.tsx 2ms (unchanged)
+components/demo.tsx 9ms (unchanged)
+components/features.tsx 8ms (unchanged)
+components/header.tsx 7ms (unchanged)
+components/motion.tsx 24ms (unchanged)
