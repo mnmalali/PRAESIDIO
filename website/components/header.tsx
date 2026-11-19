@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import { Mark } from "./brand";
 import { MotionToggle } from "./motion";
+import { repositoryUrl } from "../lib/site";
 
 const links = [
   ["/product", "Product"],
@@ -31,6 +32,7 @@ export function Header() {
             {label}
           </Link>
         ))}
+        <a href={repositoryUrl}>GitHub</a>
       </nav>
       <MotionToggle />
       <Link className="button header-cta" href="/#demo">
@@ -59,6 +61,7 @@ export function Header() {
               {label}
             </Link>
           ))}
+          <a href={repositoryUrl} onClick={() => { if (menu.current) menu.current.open = false; }}>GitHub</a>
         </nav>
       </details>
     </header>

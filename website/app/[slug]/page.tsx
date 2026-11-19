@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { pageMetadata } from "../../lib/site";
+import { pageMetadata, repositoryUrl } from "../../lib/site";
 
 const pages = {
   product: [
@@ -188,6 +188,13 @@ export default async function Document({
       {slug === "docs" && (
         <>
           <section>
+            <h2>Get PRAESIDIO</h2>
+            <p>
+              Download the source and read the setup guides in the{" "}
+              <a href={repositoryUrl}>PRAESIDIO GitHub repository</a>.
+            </p>
+          </section>
+          <section>
             <h2>01 / Prepare the runtime</h2>
             <p>
               Use the supplied PRAESIDIO source directory. You need Docker with
@@ -265,7 +272,9 @@ export default async function Document({
                 {"docker compose --profile setup run --rm setup reset-password"}
               </code>
             </pre>
-            <p>See the repository SDK guides for further configuration.</p>
+            <p>
+              See the <a href={repositoryUrl}>repository SDK guides</a> for further configuration.
+            </p>
           </section>
         </>
       )}
@@ -305,7 +314,10 @@ export default async function Document({
               PRAESIDIO AI is an independent derivative distributed under the{" "}
               <a href="/LICENSE.txt">Apache License 2.0</a>. It is not an
               official service of the original authors and does not imply endorsement.
-              Full source acknowledgments are in the repository attribution file.
+              Full source acknowledgments are in the{" "}
+              <a href={`${repositoryUrl}/blob/main/UPSTREAM_ATTRIBUTION.md`}>
+                repository attribution file
+              </a>.
             </p>
             <p>
               The derivative adds original branding, a separate public website,

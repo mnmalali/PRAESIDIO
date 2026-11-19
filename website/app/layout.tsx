@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { Header } from "../components/header";
 import { Mark } from "../components/brand";
-import { origin } from "../lib/site";
+import { origin, repositoryUrl } from "../lib/site";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { MotionProvider } from "../components/motion";
@@ -45,6 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link href="/product">Product</Link>
               <Link href="/security">Security</Link>
               <Link href="/docs">Documentation</Link>
+              <a href={repositoryUrl}>GitHub repository</a>
               <Link href="/changelog">Changelog</Link>
               <Link href="/about">About</Link>
               <Link href="/contact">Contact</Link>

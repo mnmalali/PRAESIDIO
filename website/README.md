@@ -2,6 +2,8 @@
 
 Independent Next.js marketing project. It requires Node 22 or later and npm, with no Go, GPU, database, Docker, private credentials or sibling-source imports.
 
+The homepage, navigation, footer, setup guide, and About page link to the [PRAESIDIO GitHub repository](https://github.com/mnmalali/PRAESIDIO).
+
 ```sh
 npm ci
 npm run lint

@@ -12,7 +12,7 @@ Modified upstream source/doc files carry dated PRAESIDIO notices. LICENSE and or
 - frontend/package-lock.json: compatible dependency security updates after original baseline.
 - sdk/typescript/package-lock.json: compatible dependency security updates after original baseline.
 - Any package.json/lockfile metadata changes are recorded here because JSON does not accept comments.
-- Added website/, original SVG mark, docs/praesidio, local design skills and project instructions.
+- Added website/, original SVG mark, docs/praesidio and project instructions. Website-development skills were subsequently removed; only PRAESIDIO security skills remain under `.agents/skills/`.
 
 - Dashboard routes/components/styles: original identity, responsive navigation, labelled controls, semantic dark/light palette and explicit loading/error states. Middleware allows reauthentication with revoked/expired cookies and serves the public brand icon. Backend authorization remains authoritative.
 - frontend/package-lock.json resolves Next 15.5.29 and compatible security patches. sdk/typescript/package.json adds esbuild override ^0.28.1; runtime SDK code and public identities remain unchanged.

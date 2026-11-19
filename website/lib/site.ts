@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+export const repositoryUrl = "https://github.com/mnmalali/PRAESIDIO";
+
 export const routes = [
   "/",
   "/product",

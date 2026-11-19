@@ -4,7 +4,7 @@ import { Demo } from "../components/demo";
 import { Features } from "../components/features";
 import { LogoJourney } from "../components/motion";
 import { Mark } from "../components/brand";
-import { pageMetadata } from "../lib/site";
+import { pageMetadata, repositoryUrl } from "../lib/site";
 
 export const metadata = pageMetadata(
   "Runtime security for autonomous agents",
@@ -38,9 +38,9 @@ export default function Home() {
             <Link className="button primary" href="#demo">
               Explore the demo <span aria-hidden="true">↗</span>
             </Link>
-            <Link className="button quiet" href="/docs">
-              Start self-hosting <span aria-hidden="true">→</span>
-            </Link>
+            <a className="button quiet" href={repositoryUrl}>
+              View source on GitHub <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
         <div className="product-stage wrap">
