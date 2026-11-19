@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python -m praesidio_cc.agent prompt",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python\" -m praesidio_cc.agent prompt",
             "timeout": 30
           }
         ]
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python -m praesidio_cc.agent pre",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python\" -m praesidio_cc.agent pre",
             "timeout": 60
           }
         ]
@@ -29,7 +29,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python -m praesidio_cc.agent post",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python\" -m praesidio_cc.agent post",
             "timeout": 15
           }
         ]
@@ -40,7 +40,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python -m praesidio_cc.agent notify",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python\" -m praesidio_cc.agent notify",
             "timeout": 5
           }
         ]
@@ -51,7 +51,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python -m praesidio_cc.agent stop",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python\" -m praesidio_cc.agent stop",
             "timeout": 15
           }
         ]
@@ -62,7 +62,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python -m praesidio_cc.agent start",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python\" -m praesidio_cc.agent start",
             "timeout": 10
           }
         ]
@@ -73,7 +73,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python -m praesidio_cc.agent end",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/praesidio-python\" -m praesidio_cc.agent end",
             "timeout": 10
           }
         ]
