@@ -4,6 +4,8 @@ Independent Next.js marketing project. It requires Node 22 or later and npm, wit
 
 The homepage, navigation, footer, setup guide, and About page link to the [PRAESIDIO GitHub repository](https://github.com/mnmalali/PRAESIDIO).
 
+The homepage shows the user-supplied 34-second launch film between integrations and the workflow. The MP4 and its poster are served locally from `public/media/`; playback starts only when a visitor chooses it. Product scenes in the film are illustrative.
+
 ```sh
 npm ci
 npm run lint

@@ -108,6 +108,7 @@ export function LogoJourney() {
       dock(".hero-copy h1","right",100);
       dock(".scenario-picker","left");
       dock(".integrations > p","left",48);
+      dock(".launch-film h2","right",48);
       dock(".workflow-section h2","left");
       dock(".feature-switcher","left",48);
       dock(".control-section h2","right");

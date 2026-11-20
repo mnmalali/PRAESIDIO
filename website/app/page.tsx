@@ -69,6 +69,24 @@ export default function Home() {
         <ul>{[["hermes", "Hermes Agent"], ["openclaw", "OpenClaw"]].map(([icon, name]) => <li key={icon}><Image src={`/logos/${icon}.${icon === "hermes" ? "png" : "svg"}`} width={28} height={28} alt="" />{name}</li>)}</ul>
         <p className="integration-note">Hermes Agent and OpenClaw compatibility has not yet been verified.</p>
       </section>
+      <section className="launch-film wrap" aria-labelledby="launch-film-title">
+        <div className="launch-film-copy">
+          <p className="section-kicker">PRAESIDIO / Launch film</p>
+          <h2 id="launch-film-title">See the idea in motion.</h2>
+          <p>A 34-second look at context, policy, and human review. Product scenes in the film are illustrative.</p>
+        </div>
+        <video
+          className="launch-film-video"
+          controls
+          playsInline
+          preload="none"
+          poster="/media/praesidio-launch-poster.jpg"
+          aria-label="PRAESIDIO launch film"
+        >
+          <source src="/media/PRAESIDIO-launch-1080p.mp4" type="video/mp4" />
+          <a href="/media/PRAESIDIO-launch-1080p.mp4">Watch the PRAESIDIO launch film</a>
+        </video>
+      </section>
       <section className="section wrap workflow-section" id="how-it-works">
         <div className="section-heading centered">
           <p className="section-kicker">The space between intent and action</p>

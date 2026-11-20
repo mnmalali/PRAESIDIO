@@ -8,6 +8,10 @@
 
 **Inspect agent actions, apply policy, and keep an evidence trail.** PRAESIDIO is a self-hosted security runtime for supported AI agent integrations. It pairs agent events with a local classifier, records verdicts in a private dashboard, and can gate tool execution where the integration supports it.
 
+[![Watch the 34-second PRAESIDIO launch film](website/public/media/praesidio-launch-poster.jpg)](website/public/media/PRAESIDIO-launch-1080p.mp4?raw=1)
+
+Watch the [PRAESIDIO launch film](website/public/media/PRAESIDIO-launch-1080p.mp4?raw=1). Its product scenes are illustrative.
+
 [Quick start](#quick-start) · [Integrations](#integrations) · [Security boundaries](#security-boundaries) · [Architecture](#architecture) · [Contributing](#develop-and-contribute)
 
 ## What PRAESIDIO includes
